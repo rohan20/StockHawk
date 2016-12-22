@@ -19,6 +19,8 @@ import com.udacity.stockhawk.R;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+import static android.R.id.list;
+
 
 public class AddStockDialog extends DialogFragment {
 
@@ -38,6 +40,7 @@ public class AddStockDialog extends DialogFragment {
         stock.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                // TODO: 22-Dec-16 Check if stock already exists in list
                 addStock();
                 return true;
             }
@@ -48,6 +51,7 @@ public class AddStockDialog extends DialogFragment {
         builder.setPositiveButton(getString(R.string.dialog_add),
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
+                        // TODO: 22-Dec-16 Check if stock already exists in list
                         addStock();
                     }
                 });
