@@ -64,9 +64,9 @@ public class StocksRemoteViewsFactory implements RemoteViewsService.RemoteViewsF
         remoteViews.setTextViewText(R.id.widget_item_price_change, stockPercentageChange + "%");
 
         if (!stockPercentageChange.contains("-")) {
-            remoteViews.setInt(R.id.widget_item_price_change, "setBackgroundResource", R.drawable.percent_change_pill_green);
+            remoteViews.setInt(R.id.widget_item_price_change, mContext.getString(R.string.set_background_resource), R.drawable.percent_change_pill_green);
         } else {
-            remoteViews.setInt(R.id.widget_item_price_change, "setBackgroundResource", R.drawable.percent_change_pill_red);
+            remoteViews.setInt(R.id.widget_item_price_change, mContext.getString(R.string.set_background_resource), R.drawable.percent_change_pill_red);
         }
 
 

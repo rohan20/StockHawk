@@ -83,7 +83,6 @@ public final class QuoteSyncJob {
                     context.getContentResolver().delete(Contract.Quote.makeUriForStock(symbol), null, null);
 
                     // TODO: 23-Dec-16 How to display toast here? (Issue of context for toast)
-                    Log.i("stock", "NULL");
                     continue;
                 }
 

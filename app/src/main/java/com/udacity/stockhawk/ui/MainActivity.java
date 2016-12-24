@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         Timber.d("Symbol clicked: %s", symbol);
 
         Intent launchDetailActivity = new Intent(MainActivity.this, StockDetailActivity.class);
-        launchDetailActivity.putExtra("symbol", symbol);
+        launchDetailActivity.putExtra(getString(R.string.symbol), symbol);
         startActivity(launchDetailActivity);
     }
 
@@ -119,7 +119,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     }
 
     public void button(View view) {
-        new AddStockDialog().show(getFragmentManager(), "StockDialogFragment");
+        new AddStockDialog().show(getFragmentManager(), getString(R.string.stock_dialog_fragment));
     }
 
     void addStock(String symbol) {
@@ -205,7 +205,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     }
 
     public void showToast(String symbol) {
-        Toast.makeText(this, symbol + " doesn't exist!", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, symbol + getString(R.string.does_not_exist), Toast.LENGTH_SHORT).show();
     }
 
 }

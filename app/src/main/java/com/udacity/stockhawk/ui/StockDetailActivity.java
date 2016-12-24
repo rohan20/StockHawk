@@ -42,7 +42,7 @@ public class StockDetailActivity extends AppCompatActivity {
         mStockNameTextView = (TextView) findViewById(R.id.detail_stock_name_text_view);
 
         Intent intent = getIntent();
-        String symbol = intent.getExtras().getString("symbol");
+        String symbol = intent.getExtras().getString(getString(R.string.symbol));
 
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null)
@@ -61,12 +61,12 @@ public class StockDetailActivity extends AppCompatActivity {
             String stocksHistoryString = c.getString(c.getColumnIndex(Contract.Quote.COLUMN_HISTORY));
             mStockNameTextView.setText(symbol);
 
-            String lines[] = stocksHistoryString.split("\\r?\\n");
+            String lines[] = stocksHistoryString.split(getString(R.string.new_line_separator));
             String[] stockValue = new String[lines.length];
             String[] stockDate = new String[lines.length];
 
             for (int i = 0; i < lines.length; i++) {
-                String stockValueCommaStockDateString[] = lines[i].split(",[ ]*");
+                String stockValueCommaStockDateString[] = lines[i].split(getString(R.string.comma_and_space_separator));
                 stockDate[i] = stockValueCommaStockDateString[0];
                 stockValue[i] = stockValueCommaStockDateString[1];
             }
@@ -80,7 +80,7 @@ public class StockDetailActivity extends AppCompatActivity {
             LineGraphSeries<DataPoint> series = new LineGraphSeries<>(dataPoints);
 
             // styling series
-            series.setTitle("Stock value");
+            series.setTitle(getString(R.string.stock_value));
             series.setColor(Color.GREEN);
             series.setDrawDataPoints(true);
             series.setDataPointsRadius(10);

@@ -39,7 +39,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignTop="@id/widget_item_symbol"
         android:layout_marginEnd="10dp"
-        android:layout_toLeftOf="@id/widget_item_price_change"
+        android:layout_toStartOf="@id/widget_item_price_change"
         android:gravity="center"
         tools:text="1000.00" />
 

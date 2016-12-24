@@ -5,7 +5,6 @@
 
     <string name="pref_stocks_key">stocks</string>
 
-
     <string name="pref_display_mode_key">displayMode</string>
     <string name="pref_display_mode_default">@string/pref_display_mode_percentage_key</string>
 
@@ -32,5 +31,13 @@
     <string name="toast_stock_added_no_connectivity">Symbol %s added. Will refresh when network available.</string>
     <string name="toast_no_connectivity">Will refresh when network available.</string>
     <string name="add_stock">Add Stock</string>
+
+    <string name="symbol">symbol</string>
+    <string name="stock_dialog_fragment">StockDialogFragment</string>
+    <string name="does_not_exist">" doesn't exist!"</string>
+    <string name="new_line_separator">\\r?\\n</string>
+    <string name="comma_and_space_separator">,[ ]*</string>
+    <string name="stock_value">Stock value</string>
+    <string name="set_background_resource">setBackgroundResource</string>
 
 </resources>
