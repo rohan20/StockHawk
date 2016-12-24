@@ -1,23 +1,23 @@
 <resources>
-    <string name="app_name">Stock Hawk</string>
+    <string name="app_name" translatable="false">Stock Hawk</string>
 
     <string name="pref_stocks_initialized_key" translatable="false">initialized</string>
 
-    <string name="pref_stocks_key">stocks</string>
+    <string name="pref_stocks_key" translatable="false">stocks</string>
 
-    <string name="pref_display_mode_key">displayMode</string>
-    <string name="pref_display_mode_default">@string/pref_display_mode_percentage_key</string>
+    <string name="pref_display_mode_key" translatable="false">displayMode</string>
+    <string name="pref_display_mode_default" translatable="false">@string/pref_display_mode_percentage_key</string>
 
-    <string name="pref_display_mode_absolute_key">absolute</string>
-    <string name="pref_display_mode_percentage_key">percentage</string>
+    <string name="pref_display_mode_absolute_key" translatable="false">absolute</string>
+    <string name="pref_display_mode_percentage_key" translatable="false">percentage</string>
 
-    <string name="default_stocks_yahoo">YHOO</string>
-    <string name="default_stocks_apple">AAPL</string>
-    <string name="default_stocks_microsoft">MSFT</string>
-    <string name="default_stocks_facebook">FB</string>
+    <string name="default_stocks_yahoo" translatable="false">YHOO</string>
+    <string name="default_stocks_apple" translatable="false">AAPL</string>
+    <string name="default_stocks_microsoft" translatable="false">MSFT</string>
+    <string name="default_stocks_facebook" translatable="false">FB</string>
 
 
-    <string name="action_change_units">@string/pref_display_mode_key</string>
+    <string name="action_change_units" translatable="false">@string/pref_display_mode_key</string>
 
 
     <string name="dialog_title">Add Stock</string>
@@ -32,12 +32,12 @@
     <string name="toast_no_connectivity">Will refresh when network available.</string>
     <string name="add_stock">Add Stock</string>
 
-    <string name="symbol">symbol</string>
-    <string name="stock_dialog_fragment">StockDialogFragment</string>
+    <string name="symbol" translatable="false">symbol</string>
+    <string name="stock_dialog_fragment" translatable="false">StockDialogFragment</string>
     <string name="does_not_exist">" doesn't exist!"</string>
-    <string name="new_line_separator">\\r?\\n</string>
-    <string name="comma_and_space_separator">,[ ]*</string>
+    <string name="new_line_separator" translatable="false">\\r?\\n</string>
+    <string name="comma_and_space_separator" translatable="false">,[ ]*</string>
     <string name="stock_value">Stock value</string>
-    <string name="set_background_resource">setBackgroundResource</string>
+    <string name="set_background_resource" translatable="false">setBackgroundResource</string>
 
 </resources>
