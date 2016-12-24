@@ -189,4 +189,9 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         }
         return super.onOptionsItemSelected(item);
     }
+
+    public void showToast(String symbol) {
+        Toast.makeText(this, symbol + " doesn't exist!", Toast.LENGTH_SHORT).show();
+    }
+
 }
