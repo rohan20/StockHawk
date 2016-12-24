@@ -10,7 +10,7 @@
     <application
         android:name=".StockHawkApp"
         android:allowBackup="false"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/stocks_icon"
         android:label="@string/app_name"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
@@ -29,7 +29,7 @@
         <provider
             android:name=".data.StockProvider"
             android:authorities="com.udacity.stockhawk"
-            android:exported="false" />
+            android:exported="true" />
 
         <service
             android:name=".sync.QuoteJobService"
@@ -37,7 +37,24 @@
             android:exported="true"
             android:permission="android.permission.BIND_JOB_SERVICE" />
 
-        <activity android:name=".ui.StockDetailActivity"></activity>
+        <!--stock detail activity-->
+        <activity android:name=".ui.StockDetailActivity" />
+
+        <!--widget starts-->
+        <receiver android:name=".widget.StocksWidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_info" />
+        </receiver>
+
+        <service
+            android:name=".widget.StocksWidgetService"
+            android:permission="android.permission.BIND_REMOTEVIEWS" />
+        <!--widget ends-->
+
     </application>
 
 </manifest>
