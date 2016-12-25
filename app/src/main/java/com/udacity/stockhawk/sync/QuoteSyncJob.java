@@ -9,9 +9,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.udacity.stockhawk.R;
 import com.udacity.stockhawk.data.Contract;
 import com.udacity.stockhawk.data.PrefUtils;
 
@@ -23,6 +26,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import timber.log.Timber;
 import yahoofinance.Stock;
@@ -43,7 +48,7 @@ public final class QuoteSyncJob {
     private QuoteSyncJob() {
     }
 
-    static void getQuotes(Context context) {
+    static void getQuotes(final Context context) {
 
         Timber.d("Running sync job");
 
@@ -76,12 +81,37 @@ public final class QuoteSyncJob {
 
 
                 Stock stock = quotes.get(symbol);
-                StockQuote quote = stock.getQuote();
 
-                if (quote.getPrice() == null) {
+                if (stock == null) {
                     PrefUtils.removeStock(context, symbol);
                     context.getContentResolver().delete(Contract.Quote.makeUriForStock(symbol), null, null);
 
+                    Handler h = new Handler(Looper.getMainLooper());
+                    h.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            Toast.makeText(context, R.string.invalid_symbol, Toast.LENGTH_LONG).show();
+                        }
+                    });
+                    continue;
+                }
+
+                StockQuote quote = stock.getQuote();
+
+                Pattern p = Pattern.compile("^[a-zA-Z]+([\\.\\-]?[a-z]+)?$");
+                Matcher m = p.matcher(stock.getSymbol());
+
+                if (quote == null || quote.getPrice() == null || !m.find()) {
+                    PrefUtils.removeStock(context, symbol);
+                    context.getContentResolver().delete(Contract.Quote.makeUriForStock(symbol), null, null);
+
+                    Handler h = new Handler(Looper.getMainLooper());
+                    h.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            Toast.makeText(context, R.string.invalid_symbol, Toast.LENGTH_LONG).show();
+                        }
+                    });
                     // TODO: 23-Dec-16 How to display toast here? (Issue of context for toast)
                     continue;
                 }

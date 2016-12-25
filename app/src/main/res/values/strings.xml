@@ -39,5 +39,6 @@
     <string name="comma_and_space_separator" translatable="false">,[ ]*</string>
     <string name="stock_value">Stock value</string>
     <string name="set_background_resource" translatable="false">setBackgroundResource</string>
+    <string name="invalid_symbol">No such stock exists</string>
 
 </resources>
